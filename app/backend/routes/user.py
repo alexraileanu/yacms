@@ -1,13 +1,22 @@
-from app.backend import backend, user_manager
-from app.backend.models.user import User
-from app import db
-
-
-@backend.route('/create-demo-user')
-def create_demo_user():
-    user = User(
-        username='demo',
-        password=user_manager.hash_password('demo'),
-    )
-    db.session.add(user)
-    db.session.commit()
+from app.backend import backend
+from flask_user import login_required, current_user
+from flask import render_template
+#
+#
+# @backend.route('/me')
+# @login_required
+# def me():
+#     return render_template('backend/user/profile.j2', user=current_user)
+#
+#
+# # @backend.route('/me/<attr>/change')
+# # @login_required
+# # def attr_change(attr):
+# #     return render_template('backend/user/change{}.j2'.format(attr.upper()), user=current_user)
+#
+#
+# # @backend.route('/me/username/change')
+# # @login_required
+# # def username_change():
+# #     return render_template('backend/user/changeUsername.j2', user=current_user)
+#

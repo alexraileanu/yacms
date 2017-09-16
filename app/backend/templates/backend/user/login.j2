@@ -1,5 +1,9 @@
 {% extends 'backend/includes/base.j2' %}
-{% from 'backend/includes/macros.j2' import render_field, render_submit_field, render_errors %}
+{% from 'backend/includes/macros.j2' import render_field, render_submit_field, render_flashes %}
+
+{% block menu %}
+    {% include 'backend/includes/stdMenu.j2' %}
+{% endblock %}
 
 {% block content %}
     {# i don't even know #}
@@ -7,7 +11,7 @@
         <div class="uk-container">
             <div class="uk-flex uk-flex-center">
                 <form method="POST" role="form" style="width: 50%"> {# TODO: fix this #}
-                    {{ render_errors() }}
+                    {{ render_flashes() }}
 
                     <fieldset class="uk-fieldset">
                         <legend class="uk-legend">Log in</legend>

@@ -1,0 +1,18 @@
+{% extends 'backend/includes/base.j2' %}
+{% from 'backend/includes/macros.j2' import render_field, render_submit_field %}
+
+{% block menu %}
+    {% include 'backend/includes/adminMenu.j2' %}
+{% endblock %}
+
+{% block content %}
+    <h1>Change username</h1>
+
+    <form action='' method='POST' class='form' role='form'>
+        {{ form.hidden_tag() }}
+        {{ render_field(form.new_username, tabindex=10) }}
+        {{ render_field(form.old_password, tabindex=20) }}
+        {{ render_submit_field(form.submit, tabindex=90) }}
+    </form>
+
+{% endblock %}
