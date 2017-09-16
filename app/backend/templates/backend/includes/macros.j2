@@ -1,0 +1,49 @@
+{% macro render_checkbox_field(field, label=None) -%}
+    {% if not label %}{% set label=field.label.text %}{% endif %}
+    <div class="checkbox">
+        <label>
+            {{ field(type='checkbox', **kwargs) }} {{ label }}
+        </label>
+    </div>
+{%- endmacro %}
+
+{% macro render_radio_field(field) -%}
+    {% for value, label, checked in field.iter_choices() %}
+        <div class="radio">
+            <label>
+                <input type="radio" name="{{ field.id }}" id="{{ field.id }}" value="{{ value }}"{% if checked %} checked{% endif %}>
+                {{ label }}
+            </label>
+        </div>
+    {% endfor %}
+{%- endmacro %}
+
+{% macro render_submit_field(field, label=None, tabindex=None) -%}
+    {% if not label %}{% set label=field.label.text %}{% endif %}
+    <button class="uk-button uk-button-default">{{ label }}</button>
+{%- endmacro %}
+
+{% macro render_field(field) -%}
+    {{ field(**kwargs) }}
+
+    {% if field.errors %}
+        {% for e in field.errors %}
+            <div class="uk-alert-danger" uk-alert>
+                <p>{{ e }}</p>
+            </div>
+        {% endfor %}
+    {% endif %}
+{%- endmacro %}
+
+{% macro render_errors() %}
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            {% for message in messages %}
+                <div class="uk-alert-danger" uk-alert>
+                    <a class="uk-alert-close" uk-close></a>
+                    <p>{{ message }}</p>
+                </div>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+{% endmacro %}

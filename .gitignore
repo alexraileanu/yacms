@@ -1,0 +1,7 @@
+/venv
+/config/*
+!/config/.gitkeep
+!/config/config.example.cfg
+.idea
+.DS_Store
+__pycache__
