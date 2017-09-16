@@ -7,28 +7,28 @@
 
 {% block content %}
     {# i don't even know #}
-    <div class="uk-section">
-        <div class="uk-container">
-            <div class="uk-flex uk-flex-center">
-                <form method="POST" role="form" style="width: 50%"> {# TODO: fix this #}
+    <div class='uk-section'>
+        <div class='uk-container'>
+            <div class='uk-flex uk-flex-center'>
+                <form method='POST' role='form' style='width: 50%'> {# TODO: fix this #}
                     {{ render_flashes() }}
 
-                    <fieldset class="uk-fieldset">
-                        <legend class="uk-legend">Log in</legend>
+                    <fieldset class='uk-fieldset'>
+                        <legend class='uk-legend'>Log in</legend>
 
                         {{ form.hidden_tag() }}
 
-                        <div class="uk-margin">
+                        <div class='uk-margin'>
                             {% set username_field = form.username %}
                             {{ render_field(username_field, tabindex=110, placeholder='username', class='uk-input') }}
                         </div>
 
-                        <div class="uk-margin">
+                        <div class='uk-margin'>
                             {% set password_field = form.password %}
                             {{ render_field(password_field, tabindex=120, placeholder='password', class='uk-input') }}
                         </div>
 
-                        <div class="uk-margin">
+                        <div class='uk-margin'>
                             {{ render_submit_field(form.submit, tabindex=130) }}
                         </div>
                     </fieldset>

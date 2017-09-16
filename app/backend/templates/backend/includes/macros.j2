@@ -1,6 +1,6 @@
 {% macro render_checkbox_field(field, label=None) -%}
     {% if not label %}{% set label=field.label.text %}{% endif %}
-    <div class="checkbox">
+    <div class='checkbox'>
         <label>
             {{ field(type='checkbox', **kwargs) }} {{ label }}
         </label>
@@ -9,9 +9,9 @@
 
 {% macro render_radio_field(field) -%}
     {% for value, label, checked in field.iter_choices() %}
-        <div class="radio">
+        <div class='radio'>
             <label>
-                <input type="radio" name="{{ field.id }}" id="{{ field.id }}" value="{{ value }}"{% if checked %}
+                <input type='radio' name='{{ field.id }}' id='{{ field.id }}' value='{{ value }}'{% if checked %}
                        checked{% endif %}>
                 {{ label }}
             </label>
@@ -21,7 +21,7 @@
 
 {% macro render_submit_field(field, label=None, tabindex=None) -%}
     {% if not label %}{% set label=field.label.text %}{% endif %}
-    <button class="uk-button uk-button-default">{{ label }}</button>
+    <button class='uk-button uk-button-default'>{{ label }}</button>
 {%- endmacro %}
 
 {% macro render_field(field) -%}
@@ -29,7 +29,7 @@
 
     {% if field.errors %}
         {% for e in field.errors %}
-            <div class="uk-alert-danger" uk-alert>
+            <div class='uk-alert-danger' uk-alert>
                 <p>{{ e }}</p>
             </div>
         {% endfor %}
@@ -41,11 +41,11 @@
         {% if messages %}
             {% for category, message in messages %}
                 {% if category == 'error' %}
-                    <div class="uk-alert-danger" uk-alert>
+                    <div class='uk-alert-danger' uk-alert>
                 {% else %}
-                    <div class="uk-alert-success" uk-alert>
+                    <div class='uk-alert-success' uk-alert>
                 {% endif %}
-                    <a class="uk-alert-close" uk-close></a>
+                    <a class='uk-alert-close' uk-close></a>
                     <p>{{ message }}</p>
                 </div>
             {% endfor %}
