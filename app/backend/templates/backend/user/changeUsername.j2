@@ -5,28 +5,38 @@
     {% include 'backend/includes/adminMenu.j2' %}
 {% endblock %}
 
+{% block sidebar %}
+    {% include 'backend/includes/sidebar.j2' %}
+{% endblock %}
+
 {% block content %}
-    <div class='uk-section'>
-        <div class='uk-container'>
-            <div class='uk-flex uk-flex-center'>
-                <form method='POST' role='form' class='form' style='width: 50%'> {# TODO: fix this #}
-                    <h1>Change username</h1>
+    <div class="content-padder content-background">
+        <div class="uk-section-small uk-section-default header">
+            <div class="uk-container uk-container-large">
+                <div class='uk-section'>
+                    <div class='uk-container'>
+                        <div class='uk-flex uk-flex-center'>
+                            <form method='POST' role='form' class='form' style='width: 50%'> {# TODO: fix this #}
+                                <h1>Change username</h1>
 
-                    {{ form.hidden_tag() }}
-                    <fieldset class='uk-fieldset'>
-                        <div class='uk-margin'>
-                            {{ render_field(form.new_username, tabindex=110, placeholder='new username', class='uk-input') }}
-                        </div>
+                                {{ form.hidden_tag() }}
+                                <fieldset class='uk-fieldset'>
+                                    <div class='uk-margin'>
+                                        {{ render_field(form.new_username, tabindex=110, placeholder='new username', class='uk-input') }}
+                                    </div>
 
-                        <div class='uk-margin'>
-                            {{ render_field(form.old_password, tabindex=120, placeholder='your password', class='uk-input') }}
-                        </div>
+                                    <div class='uk-margin'>
+                                        {{ render_field(form.old_password, tabindex=120, placeholder='your password', class='uk-input') }}
+                                    </div>
 
-                        <div class='uk-margin'>
-                            {{ render_submit_field(form.submit, tabindex=130) }}
+                                    <div class='uk-margin'>
+                                        {{ render_submit_field(form.submit, tabindex=130) }}
+                                    </div>
+                                </fieldset>
+                            </form>
                         </div>
-                    </fieldset>
-                </form>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

@@ -4,7 +4,8 @@ from flask_user import UserManager, SQLAlchemyAdapter
 from app import db
 from app import app
 
-backend = Blueprint('backend', __name__, template_folder='templates', url_prefix='/admin')
+backend = Blueprint('backend', __name__, template_folder='templates', url_prefix='/admin',
+                    static_folder='static/public', static_url_path='')
 
 from app.backend.models import user as user_model
 

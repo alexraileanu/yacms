@@ -4,16 +4,26 @@
     {% include 'backend/includes/adminMenu.j2' %}
 {% endblock %}
 
+{% block sidebar %}
+    {% include 'backend/includes/sidebar.j2' %}
+{% endblock %}
+
 {% block content %}
-    {% from 'backend/includes/macros.j2' import render_field, render_checkbox_field, render_submit_field %}
+    <div class="content-padder content-background">
+        <div class="uk-section-small uk-section-default header">
+            <div class="uk-container uk-container-large">
+                {% from 'backend/includes/macros.j2' import render_field, render_checkbox_field, render_submit_field %}
 
-    <h1>User profile</h1>
+                <h1>User profile</h1>
 
-    {% if user_manager.enable_change_username %}
-        <p><a href='{{ url_for('user.change_username') }}'>Change username</a></p>
-    {% endif %}
+                {% if user_manager.enable_change_username %}
+                    <p><a href='{{ url_for('user.change_username') }}'>Change username</a></p>
+                {% endif %}
 
-    {% if user_manager.enable_change_password %}
-        <p><a href='{{ url_for('user.change_password') }}'>Change password</a></p>
-    {% endif %}
+                {% if user_manager.enable_change_password %}
+                    <p><a href='{{ url_for('user.change_password') }}'>Change password</a></p>
+                {% endif %}
+            </div>
+        </div>
+    </div>
 {% endblock %}

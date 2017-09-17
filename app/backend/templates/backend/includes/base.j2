@@ -7,11 +7,7 @@
     <meta http-equiv='X-UA-Compatible' content='ie=edge'>
 
     <link rel='stylesheet' href='//cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-beta.30/css/uikit.min.css'/>
-    <script src='//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
-
-    <script src='//cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-beta.30/js/uikit.min.js'></script>
-    <script src='//cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-beta.30/js/uikit-icons.min.js'></script>
-
+    <link rel="stylesheet" href="{{ url_for('backend.static', filename='css/style.css') }}">
 
     <title>YaCMS</title>
 </head>
@@ -29,8 +25,18 @@
         </nav>
     </div>
 </div>
+
+{% block sidebar %}
+
+{% endblock %}
+
 {% block content %}
 
 {% endblock %}
+
+<script src='//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
+
+<script src='//cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-beta.30/js/uikit.min.js'></script>
+<script src='//cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-beta.30/js/uikit-icons.min.js'></script>
 </body>
 </html>

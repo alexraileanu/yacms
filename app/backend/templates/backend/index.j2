@@ -3,3 +3,19 @@
 {% block menu %}
     {% include 'backend/includes/adminMenu.j2' %}
 {% endblock %}
+
+{% block sidebar %}
+    {% include 'backend/includes/sidebar.j2' %}
+{% endblock %}
+
+{% block content %}
+    <div class="content-padder content-background">
+        <div class="uk-section-small uk-section-default header">
+            <div class="uk-container uk-container-large">
+                <h3>
+                    Hello and welcome to the mental health hotline
+                </h3>
+            </div>
+        </div>
+    </div>
+{% endblock %}
