@@ -6,13 +6,28 @@
 {% endblock %}
 
 {% block content %}
-    <h1>Change username</h1>
+    <div class='uk-section'>
+        <div class='uk-container'>
+            <div class='uk-flex uk-flex-center'>
+                <form method='POST' role='form' class='form' style='width: 50%'> {# TODO: fix this #}
+                    <h1>Change username</h1>
 
-    <form action='' method='POST' class='form' role='form'>
-        {{ form.hidden_tag() }}
-        {{ render_field(form.new_username, tabindex=10) }}
-        {{ render_field(form.old_password, tabindex=20) }}
-        {{ render_submit_field(form.submit, tabindex=90) }}
-    </form>
+                    {{ form.hidden_tag() }}
+                    <fieldset class='uk-fieldset'>
+                        <div class='uk-margin'>
+                            {{ render_field(form.new_username, tabindex=110, placeholder='new username', class='uk-input') }}
+                        </div>
 
+                        <div class='uk-margin'>
+                            {{ render_field(form.old_password, tabindex=120, placeholder='your password', class='uk-input') }}
+                        </div>
+
+                        <div class='uk-margin'>
+                            {{ render_submit_field(form.submit, tabindex=130) }}
+                        </div>
+                    </fieldset>
+                </form>
+            </div>
+        </div>
+    </div>
 {% endblock %}

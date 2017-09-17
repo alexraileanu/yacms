@@ -25,15 +25,19 @@
 {%- endmacro %}
 
 {% macro render_field(field) -%}
-    {{ field(**kwargs) }}
+    {% set class = kwargs.pop('class', '') %}
 
     {% if field.errors %}
+        {% set class = class + ' uk-form-danger' %}
+
         {% for e in field.errors %}
             <div class='uk-alert-danger' uk-alert>
                 <p>{{ e }}</p>
             </div>
         {% endfor %}
     {% endif %}
+
+    {{ field(class=class, **kwargs) }}
 {%- endmacro %}
 
 {% macro render_flashes() %}
