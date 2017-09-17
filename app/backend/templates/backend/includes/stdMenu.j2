@@ -1,4 +1,7 @@
 <div class='uk-navbar-left'>
+    {% if adm %}
+        <a id="sidebar_toggle" class="uk-navbar-toggle" uk-navbar-toggle-icon ></a>
+    {% endif %}
     <a href='{{ url_for('backend.index') }}' class='uk-navbar-item uk-logo'>
         YaCMS
     </a>
