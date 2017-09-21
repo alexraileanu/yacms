@@ -8,6 +8,7 @@ backend = Blueprint('backend', __name__, template_folder='templates', url_prefix
                     static_folder='static/public', static_url_path='')
 
 from app.backend.models import user as user_model
+from app.backend.models import article
 
 db_adapter = SQLAlchemyAdapter(db, user_model.User)  # Register the User model
 user_manager = UserManager(db_adapter, app)  # Initialize Flask-User
