@@ -1,0 +1,53 @@
+{% extends 'backend/includes/base.j2' %}
+{% from 'backend/includes/macros.j2' import render_flashes %}
+
+{% block menu %}
+    {% include 'backend/includes/adminMenu.j2' %}
+{% endblock %}
+
+{% block sidebar %}
+    {% include 'backend/includes/sidebar.j2' %}
+{% endblock %}
+
+{% block content %}
+    <div class="content-padder content-background">
+        <div class="uk-section-small uk-section-default header">
+            <div class="uk-container uk-container-large">
+                <h3>Articles list</h3>
+                <div>
+                    {{ render_flashes() }}
+                </div>
+                <table class="uk-table uk-table-divider uk-table-small">
+                    <thead>
+                        <tr>
+                            <th>Title</th>
+                            <th>Author</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for article in articles %}
+                            <tr>
+                                <td>{{ article.title }}</td>
+                                <td>{{ article.author.username }}</td>
+                                <td>
+                                    <button class="uk-button uk-button-default uk-button-small" type="button">Actions</button>
+                                    <div uk-dropdown="mode: click">
+                                        <ul class="uk-nav uk-dropdown-nav">
+                                            <li>
+                                                <a href="{{ url_for('backend.article', slug=article.slug) }}">Edit</a>
+                                            </li>
+                                            <li>
+                                                <a href="{{ url_for('backend.article_delete', slug=article.slug) }}">Delete</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+{% endblock %}

@@ -15,3 +15,4 @@ user_manager = UserManager(db_adapter, app)  # Initialize Flask-User
 
 from app.backend.routes import user as user_routes
 from app.backend.routes import dashboard
+from app.backend.routes import article
