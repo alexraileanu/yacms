@@ -10,6 +10,7 @@ migrate = Migrate(app, db)
 
 from app.backend import backend
 from app.frontend import frontend
+from app.backend.commands import seed
 
 app.register_blueprint(frontend)
 app.register_blueprint(backend)
