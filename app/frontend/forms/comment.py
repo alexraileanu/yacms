@@ -5,6 +5,6 @@ from wtforms.widgets import HiddenInput
 
 
 class CommentForm(FlaskForm):
-    username = StringField('Username', [DataRequired()])
+    author = StringField('Username', [DataRequired()])
     content = TextAreaField('Content', [DataRequired()])
     article_id = IntegerField(widget=HiddenInput())
