@@ -1,17 +1,17 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang='en'>
     <head>
-        <meta charset="UTF-8">
-        <title>Hello World</title>
+        <meta charset='UTF-8'>
+        <title>{% block title %}{% endblock %}</title>
 
-        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-beta.30/css/uikit.min.css"/>
-        <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400" rel="stylesheet">
+        <link rel='stylesheet' href='//cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-beta.30/css/uikit.min.css'/>
+        <link href='https://fonts.googleapis.com/css?family=Montserrat:300,400' rel='stylesheet'>
 
-        <link rel="stylesheet" href="{{ url_for('frontend.static', filename='css/style.css') }}">
+        <link rel='stylesheet' href='{{ url_for('frontend.static', filename='css/style.css') }}'>
     </head>
     <body>
         <div class='uk-section-primary uk-preserve-color'>
-            <div uk-sticky='animation: uk-animation-slide-top; sel-target: .uk-navbar-container; cls-active: uk-navbar-sticky; cls-inactive: uk-navbar-transparent uk-light; top: 200'>
+            <div uk-sticky='media: 960' class='uk-navbar-container tm-navbar-container uk-sticky uk-sticky-fixed uk-active uk-sticky-below' style='position: fixed; top: 0px; width: 1416px;'>
                 <nav class='uk-navbar-container'>
                     <div class='uk-container uk-container-expand'>
                         <nav uk-navbar>
@@ -25,13 +25,14 @@
                 </nav>
             </div>
         </div>
-        
+
+
         {% block content %}
 
         {% endblock %}
 
-        <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-        <script src="//cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-beta.30/js/uikit.min.js"></script>
-        <script src="//cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-beta.30/js/uikit-icons.min.js"></script>
+        <script src='//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
+        <script src='//cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-beta.30/js/uikit.min.js'></script>
+        <script src='//cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-beta.30/js/uikit-icons.min.js'></script>
     </body>
 </html>

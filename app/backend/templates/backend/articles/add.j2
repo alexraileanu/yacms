@@ -10,16 +10,16 @@
 {% endblock %}
 
 {% block content %}
-    <div class="content-padder content-background">
-        <div class="uk-section-small uk-section-default header">
-            <div class="uk-container uk-container-large">
+    <div class='content-padder content-background'>
+        <div class='uk-section-small uk-section-default header'>
+            <div class='uk-container uk-container-large'>
                 <h3>{{ action }} article</h3>
                 <form method='POST' role='form' class='form' > {# TODO: fix this #}
 
                     {{ form.csrf_token() }}
                     <fieldset class='uk-fieldset'>
                         <div class='uk-margin'>
-                            {{ render_field(form.title, tabindex=110, placeholder='title', class='uk-input', autocomplete="off") }}
+                            {{ render_field(form.title, tabindex=110, placeholder='title', class='uk-input', autocomplete='off') }}
                         </div>
 
                         <div class='uk-margin'>
@@ -28,7 +28,7 @@
 
                         <div class='uk-margin'>
                             {{ render_submit_field(form.submit, tabindex=130) }}
-                            <a href="{{ request.referrer }}" class="uk-button uk-button-secondary">Back</a>
+                            <a href='{{ request.referrer }}' class='uk-button uk-button-secondary'>Back</a>
                         </div>
                     </fieldset>
                 </form>

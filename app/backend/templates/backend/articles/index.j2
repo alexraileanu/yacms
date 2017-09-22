@@ -31,17 +31,17 @@
                                 <td>{{ article.title }}</td>
                                 <td>{{ article.author.username }}</td>
                                 <td>
-                                    <button class="uk-button uk-button-default uk-button-small" type="button">Actions</button>
+                                    <a class="uk-button uk-button-text" type="button">Actions</a>
                                     <div uk-dropdown="mode: click">
                                         <ul class="uk-nav uk-dropdown-nav">
                                             <li>
-                                                <a href="{{ url_for('frontend.article_view', slug=article.slug) }}">View</a>
+                                                <a href="{{ url_for('frontend.article_view', slug=article.slug) }}" target="_blank">View</a>
                                             </li>
                                             <li>
-                                                <a href="{{ url_for('backend.article', slug=article.slug) }}">Edit</a>
+                                                <a href="{{ url_for('backend.article', slug=article.slug) }}" target="_blank">Edit</a>
                                             </li>
                                             <li>
-                                                <a href="{{ url_for('backend.article_delete', slug=article.slug) }}">Delete</a>
+                                                <a href="{{ url_for('backend.article_delete', slug=article.slug) }}" target="_blank">Delete</a>
                                             </li>
                                         </ul>
                                     </div>

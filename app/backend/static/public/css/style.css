@@ -11,6 +11,10 @@ p {
     font-size: 15px !important;
 }
 
+.uk-table-hover tbody tr:hover, .uk-table-hover>tr:hover {
+    background: #F9F8FB;
+}
+
 .uk-logo, .uk-logo:hover, .uk-logo:active, .uk-logo:visited {
     color: #ffffff;
 }
