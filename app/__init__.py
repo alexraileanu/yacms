@@ -14,10 +14,3 @@ from app.backend.commands import seed
 
 app.register_blueprint(frontend)
 app.register_blueprint(backend)
-
-from arrow import get
-# idk where else to put this template filter *shrug*
-
-@app.template_filter('date')
-def date(string, format):
-    return get(string).format(format)

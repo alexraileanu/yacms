@@ -6,3 +6,4 @@ frontend = Blueprint('frontend', __name__, template_folder='templates', static_f
 from app.frontend.routes import index
 from app.frontend.routes import article
 from app.frontend.routes import comment
+from app.frontend.filters import filters
