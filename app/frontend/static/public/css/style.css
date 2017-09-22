@@ -1,8 +1,16 @@
 * {
-    font-family: 'Montserrat' !important;
+    font-family: 'Montserrat', 'FontAwesome' !important;
     font-weight: 300 !important;
 }
 
 p {
     font-size: 15px !important;
+}
+
+.uk-navbar-container {
+    background-color: #1e87f0 !important;
+}
+
+.uk-logo, .uk-logo:hover, .uk-logo:active, .uk-logo:visited {
+    color: #ffffff;
 }

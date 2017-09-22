@@ -1,4 +1,5 @@
 {% extends 'frontend/includes/base.j2' %}
+{% from 'backend/includes/macros.j2' import render_field, render_submit_field, render_flashes %}
 
 {% block title %}
     {{ article.title }}
@@ -8,11 +9,45 @@
     <div class='uk-container'>
         <div class='uk-section'>
             <div class='uk-container'>
+                {{ render_flashes() }}
+
                 <article class='uk-article' style='margin-right: 25px'>
                     <h1 class='uk-article-title'>{{ article.title }}</h1>
-                    <p class='uk-article-meta'>Written by <a href='#' class='uk-link-muted'>{{ article.author.username }}</a> on {{ article.created_at|date('Do of MMMM, YYYY') }}.</p>
+                    <p class='uk-article-meta'>Written by <a href='#'
+                                                             class='uk-link-muted'>{{ article.aauthor.username }}</a>
+                        on {{ article.created_at|date('Do of MMMM, YYYY') }}.</p>
                     <p>{{ article.content }}</p>
                 </article>
+
+                <hr>
+
+                <a href='#commentModal' uk-toggle>Add comment</a>
+
+                <div id='commentModal' uk-modal>
+                    <div class='uk-modal-dialog uk-modal-body'>
+                        <h3 class='uk-modal-title'>Add comment</h3>
+
+                        <form method='POST' role='form' class='form' action='{{ url_for('frontend.comment') }}'>
+                            {{ comment_form.hidden_tag() }}
+                            <fieldset class='uk-fieldset'>
+                                <div class='uk-margin'>
+                                    {% if user.is_authenticated %}
+                                        {{ render_field(comment_form.username, class='uk-input uk-form-small', readonly='readonly', value=user.username, style='width: 50%') }}
+                                    {% else %}
+                                        {{ render_field(comment_form.username, tabindex=120, placeholder='your name', class='uk-input uk-form-small', style='width: 50%') }}
+                                    {% endif %}
+                                </div>
+                                <div class='uk-margin'>
+                                    {{ render_field(comment_form.content, tabindex=130, placeholder='comment content', class='uk-input', id='commentContent') }}
+                                </div>
+                            </fieldset>
+                            <p class='uk-text-right'>
+                                <button class='uk-button uk-button-default uk-modal-close' type='button'>Cancel</button>
+                                <button class='uk-button uk-button-primary' type='submit'>Add</button>
+                            </p>
+                        </form>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

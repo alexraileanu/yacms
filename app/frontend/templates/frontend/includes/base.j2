@@ -7,6 +7,16 @@
         <link rel='stylesheet' href='//cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-beta.30/css/uikit.min.css'/>
         <link href='https://fonts.googleapis.com/css?family=Montserrat:300,400' rel='stylesheet'>
 
+        <!-- Include external CSS. -->
+        <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet"
+              type="text/css"/>
+
+        <!-- Include Editor style. -->
+        <link href="//cdnjs.cloudflare.com/ajax/libs/froala-editor/2.7.0/css/froala_editor.pkgd.min.css" rel="stylesheet"
+              type="text/css"/>
+        <link href="//cdnjs.cloudflare.com/ajax/libs/froala-editor/2.7.0/css/froala_style.min.css" rel="stylesheet"
+              type="text/css"/>
+
         <link rel='stylesheet' href='{{ url_for('frontend.static', filename='css/style.css') }}'>
     </head>
     <body>
@@ -34,5 +44,8 @@
         <script src='//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
         <script src='//cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-beta.30/js/uikit.min.js'></script>
         <script src='//cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-beta.30/js/uikit-icons.min.js'></script>
+        <script type="text/javascript"
+                src="//cdnjs.cloudflare.com/ajax/libs/froala-editor/2.7.0/js/froala_editor.pkgd.min.js"></script>
+        <script src='{{ url_for('frontend.static', filename='js/app.js') }}'></script>
     </body>
 </html>

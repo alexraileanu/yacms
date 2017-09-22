@@ -1,4 +1,4 @@
-"""empty message
+"""create article table
 
 Revision ID: b3a77a700631
 Revises: 9dbd124f1a97

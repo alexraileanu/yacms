@@ -9,7 +9,8 @@ class User(db.Model, UserMixin):
     is_enabled = db.Column(db.Boolean())
     confirmed_at = db.Column(db.DateTime())
 
-    articles = db.relationship('Article', backref='author', lazy='dynamic')
+    articles = db.relationship('Article', backref='aauthor', lazy='dynamic')
+    comments = db.relationship('Comment', backref='cauthor', lazy='dynamic')
 
     def __init__(self, username=None, password=None, is_enabled=True, confirmed_at=None):
         self.username = username

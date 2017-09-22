@@ -4,4 +4,5 @@ frontend = Blueprint('frontend', __name__, template_folder='templates', static_f
                      static_url_path='')
 
 from app.frontend.routes import index
-from app.frontend.routes import articles
+from app.frontend.routes import article
+from app.frontend.routes import comment

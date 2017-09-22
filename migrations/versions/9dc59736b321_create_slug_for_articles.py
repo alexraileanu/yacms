@@ -1,4 +1,4 @@
-"""empty message
+"""create slug for articles
 
 Revision ID: 9dc59736b321
 Revises: b3a77a700631

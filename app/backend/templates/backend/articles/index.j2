@@ -22,6 +22,7 @@
                         <tr>
                             <th>Title</th>
                             <th>Author</th>
+                            <th>Comment count</th>
                             <th>Actions</th>
                         </tr>
                     </thead>
@@ -29,7 +30,8 @@
                         {% for article in articles %}
                             <tr>
                                 <td>{{ article.title }}</td>
-                                <td>{{ article.author.username }}</td>
+                                <td>{{ article.aauthor.username }}</td>
+                                <td>{{ article.comments.count() }}</td>
                                 <td>
                                     <a class="uk-button uk-button-text" type="button">Actions</a>
                                     <div uk-dropdown="mode: click">

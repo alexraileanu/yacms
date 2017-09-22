@@ -1,4 +1,4 @@
-"""empty message
+"""create user table
 
 Revision ID: 9dbd124f1a97
 Revises: 
