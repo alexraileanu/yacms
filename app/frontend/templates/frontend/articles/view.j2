@@ -1,0 +1,15 @@
+{% extends 'frontend/includes/base.j2' %}
+
+{% block content %}
+    <div class="uk-container">
+        <div class="uk-section">
+            <div class="uk-container">
+                <article class="uk-article" style="margin-right: 25px">
+                    <h1 class="uk-article-title">{{ article.title }}</h1>
+                    <p class="uk-article-meta">Written by <a href="#">{{ article.author.username }}</a> on {{ article.created_at }}.</p>
+                    <p>{{ article.content }}</p>
+                </article>
+            </div>
+        </div>
+    </div>
+{% endblock %}

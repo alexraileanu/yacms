@@ -1,8 +1,8 @@
 from app.backend import backend, db
-from flask_user import login_required, current_user
-from app.backend.models.article import Article
-from flask import render_template, request, redirect, url_for, flash
 from app.backend.forms.article import ArticleForm
+from app.backend.models.article import Article
+from flask_user import login_required, current_user
+from flask import render_template, request, redirect, url_for, flash
 from slugify import slugify
 from sqlalchemy.exc import SQLAlchemyError
 
