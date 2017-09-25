@@ -1,8 +1,9 @@
 from app import db
+from app.backend.models.mixins import BaseMixin
 import datetime
 
 
-class Article(db.Model):
+class Article(BaseMixin, db.Model):
     id = db.Column(db.Integer(), primary_key=True, autoincrement=True)
     title = db.Column(db.String(length=255))
     slug = db.Column(db.String(length=255))
@@ -13,7 +14,20 @@ class Article(db.Model):
 
     comments = db.relationship('Comment', backref='article', lazy='dynamic')
 
+    type = 'article'
+
     def __init__(self, title='', content=''):
-        print(title)
         self.title = title
         self.content = content
+
+    """
+        get an object from the database based on a filter column (if set).
+        
+        defaults to getting all the objects
+    """
+    @classmethod
+    def get(cls, filter_column=None, filter_value=None):
+        if filter_column:
+            return cls.query.filter(getattr(cls, filter_column) == filter_value).first_or_404()
+
+        return cls.query.all()

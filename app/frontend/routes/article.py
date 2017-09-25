@@ -7,7 +7,7 @@ from app.frontend.forms.comment import CommentForm
 
 @frontend.route('/article/<slug>')
 def article_view(slug):
-    obj = Article.query.filter(Article.slug == slug).first_or_404()
+    obj = Article.get('slug', slug)
     comment_form = CommentForm(article_id=obj.id)
     comment_form.action = url_for('frontend.comment')
 

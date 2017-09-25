@@ -13,10 +13,3 @@ def me():
 @login_required
 def attr_change(attr):
     return render_template('backend/user/change{}.j2'.format(attr.upper()), user=current_user)
-
-
-@backend.route('/me/username/change')
-@login_required
-def username_change():
-    return render_template('backend/user/changeUsername.j2', user=current_user)
-

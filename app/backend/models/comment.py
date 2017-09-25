@@ -1,8 +1,9 @@
 from app import db
 import datetime
+from app.backend.models.mixins import BaseMixin
 
 
-class Comment(db.Model):
+class Comment(BaseMixin, db.Model):
     id = db.Column(db.Integer(), primary_key=True, autoincrement=True)
     author = db.Column(db.String(length=255))
     content = db.Column(db.Text())
@@ -12,7 +13,7 @@ class Comment(db.Model):
     article_id = db.Column(db.Integer, db.ForeignKey('article.id'))
     author_id = db.Column(db.Integer, db.ForeignKey('user.id'))
 
-    def __init__(self, title='', content=''):
-        print(title)
-        self.title = title
+    type = 'comment'
+
+    def __init__(self, content=''):
         self.content = content

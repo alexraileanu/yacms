@@ -23,15 +23,8 @@ def comment():
         form.populate_obj(obj)
         article.comments.append(obj)
 
-        try:
-            db.session.add(obj)
-            db.session.add(article)
-            db.session.commit()
-
-            flash('Comment added correctly', 'success')
-        except SQLAlchemyError as e:
-            print(str(e))
-            flash('Error adding your comment', 'error')
+        msg, cat = obj.save()
+        flash(msg, cat)
 
         return redirect(request.referrer)
 
