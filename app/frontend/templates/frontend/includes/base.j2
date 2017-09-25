@@ -1,51 +1,61 @@
 <!DOCTYPE html>
 <html lang='en'>
-    <head>
-        <meta charset='UTF-8'>
-        <title>{% block title %}{% endblock %}</title>
+<head>
+    <meta charset='UTF-8'>
+    <title>{% block title %}YaCMS{% endblock %}</title>
 
-        <link rel='stylesheet' href='//cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-beta.30/css/uikit.min.css'/>
-        <link href='https://fonts.googleapis.com/css?family=Montserrat:300,400' rel='stylesheet'>
+    <link rel='stylesheet' href='//cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-beta.30/css/uikit.min.css'/>
+    <link href='https://fonts.googleapis.com/css?family=Montserrat:300,400' rel='stylesheet'>
 
-        <!-- Include external CSS. -->
-        <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet"
-              type="text/css"/>
+    <!-- Include external CSS. -->
+    <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet"
+          type="text/css"/>
 
-        <!-- Include Editor style. -->
-        <link href="//cdnjs.cloudflare.com/ajax/libs/froala-editor/2.7.0/css/froala_editor.pkgd.min.css" rel="stylesheet"
-              type="text/css"/>
-        <link href="//cdnjs.cloudflare.com/ajax/libs/froala-editor/2.7.0/css/froala_style.min.css" rel="stylesheet"
-              type="text/css"/>
+    <!-- Include Editor style. -->
+    <link href="//cdnjs.cloudflare.com/ajax/libs/froala-editor/2.7.0/css/froala_editor.pkgd.min.css" rel="stylesheet"
+          type="text/css"/>
+    <link href="//cdnjs.cloudflare.com/ajax/libs/froala-editor/2.7.0/css/froala_style.min.css" rel="stylesheet"
+          type="text/css"/>
 
-        <link rel='stylesheet' href='{{ url_for('frontend.static', filename='css/style.css') }}'>
-    </head>
-    <body>
-        <div class='uk-section-primary uk-preserve-color'>
-            <div uk-sticky='media: 960' class='uk-navbar-container tm-navbar-container uk-sticky uk-sticky-fixed uk-active uk-sticky-below' style='position: fixed; top: 0px; width: 1416px;'>
-                <nav class='uk-navbar-container'>
-                    <div class='uk-container uk-container-expand'>
-                        <nav uk-navbar>
-                            <div class='uk-navbar-left'>
-                                <a href='{{ url_for('frontend.index') }}' class='uk-navbar-item uk-logo'>
-                                    YaCMS
-                                </a>
-                            </div>
-                        </nav>
+    <link rel='stylesheet' href='{{ url_for('frontend.static', filename='css/style.css') }}'>
+</head>
+<body>
+<div class='uk-section-primary uk-preserve-color'>
+    <div uk-sticky='media: 960'
+         class='uk-navbar-container tm-navbar-container uk-sticky uk-sticky-fixed uk-active uk-sticky-below'
+         style='position: fixed; top: 0px; width: 1416px;'>
+        <nav class='uk-navbar-container'>
+            <div class='uk-container uk-container-expand'>
+                <nav uk-navbar>
+                    <div class='uk-navbar-left'>
+                        <a href='{{ url_for('frontend.index') }}' class='uk-navbar-item uk-logo'>
+                            YaCMS
+                        </a>
+                    </div>
+                    <div class='uk-navbar-right'>
+                        <a href='#' class='uk-navbar-item uk-logo' uk-icon="icon: user"></a>
+                        <div uk-dropdown='pos: bottom-right; mode: click; offset: -17;'>
+                            <ul class='uk-nav uk-navbar-dropdown-nav'>
+                                {# todo add case for when user is already logged in #}
+                                <li><a href='{{ url_for('user.login') }}'>Login</a></li>
+                            </ul>
+                        </div>
                     </div>
                 </nav>
             </div>
-        </div>
+        </nav>
+    </div>
+</div>
 
+{% block content %}
 
-        {% block content %}
+{% endblock %}
 
-        {% endblock %}
-
-        <script src='//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
-        <script src='//cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-beta.30/js/uikit.min.js'></script>
-        <script src='//cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-beta.30/js/uikit-icons.min.js'></script>
-        <script type="text/javascript"
-                src="//cdnjs.cloudflare.com/ajax/libs/froala-editor/2.7.0/js/froala_editor.pkgd.min.js"></script>
-        <script src='{{ url_for('frontend.static', filename='js/app.js') }}'></script>
-    </body>
+<script src='//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
+<script src='//cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-beta.30/js/uikit.min.js'></script>
+<script src='//cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-beta.30/js/uikit-icons.min.js'></script>
+<script type="text/javascript"
+        src="//cdnjs.cloudflare.com/ajax/libs/froala-editor/2.7.0/js/froala_editor.pkgd.min.js"></script>
+<script src='{{ url_for('frontend.static', filename='js/app.js') }}'></script>
+</body>
 </html>

@@ -1,8 +1,17 @@
 <div class='uk-navbar-left'>
     {% if adm %}
-        <a id="sidebar_toggle" class="uk-navbar-toggle" uk-navbar-toggle-icon ></a>
+        <a id="sidebar_toggle" class="uk-navbar-toggle" uk-navbar-toggle-icon></a>
     {% endif %}
     <a href='{{ url_for('backend.index') }}' class='uk-navbar-item uk-logo'>
         YaCMS
     </a>
+</div>
+<div class='uk-navbar-right'>
+    <a href='#' class='uk-navbar-item uk-logo' uk-icon="icon: user"></a>
+    <div uk-dropdown='pos: bottom-right; mode: click; offset: -17;'>
+        <ul class='uk-nav uk-navbar-dropdown-nav'>
+            {# todo add case for when user is already logged in #}
+            <li><a href='{{ url_for('user.login') }}'>Login</a></li>
+        </ul>
+    </div>
 </div>
