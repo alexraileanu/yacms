@@ -13,15 +13,18 @@ def comment():
     form = CommentForm(obj=obj)
 
     if request.method == 'POST' and form.validate():
-        if current_user.is_authenticated:
-            current_user.comments.append(obj)
-
         article = Article.get('id', form.article_id.data)
 
         form.populate_obj(obj)
         article.comments.append(obj)
 
         msg, cat = obj.save()
+
+        # this has to be after saving the comment itself as the session is commited when appending
+        # comments to the user (so then we lose track of whether the comment is new or not)
+        if current_user.is_authenticated:
+            current_user.comments.append(obj)
+
         flash(msg, cat)
 
     return redirect(request.referrer)

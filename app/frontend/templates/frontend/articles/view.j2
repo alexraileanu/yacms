@@ -55,10 +55,14 @@
                     <article class="uk-comment ">
                         <header class="uk-grid-medium uk-flex-middle" uk-grid>
                             <div class="uk-width-expand">
-                                <h4 class="uk-comment-title uk-margin-remove"><a class="uk-link-reset" href="#">{{ comment.cauthor.username|default(comment.author) }}</a>
+                                <h4 class="uk-comment-title uk-margin-remove"><a class="uk-link-reset" href="#">{{ comment.author }}</a>
                                 </h4>
                                 <ul class="uk-comment-meta uk-subnav uk-subnav-divider uk-margin-remove-top">
                                     <li><a href="#">{{ comment.created_at|humanize() }}</a></li>
+
+                                    {% if user.username == comment.author %}
+                                        <li><a href="#">Delete</a></li>
+                                    {% endif %}
                                 </ul>
                             </div>
                         </header>

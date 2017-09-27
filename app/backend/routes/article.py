@@ -29,7 +29,7 @@ def article(slug=''):
     if request.method == 'POST' and form.validate():
         current_user.articles.append(obj)
         form.populate_obj(obj)
-        obj.slug = slugify(obj.title)
+        obj.make_slug()
         msg, cat = obj.save()
 
         flash(msg, cat)
@@ -48,6 +48,11 @@ def article_view(slug):
 @backend.route('/article/delete/<slug>')
 def article_delete(slug):
     obj = Article.get('slug', slug)
+
+    # delete dangling comments
+    for comment in obj.comments:
+        comment.delete()
+
     msg, cat = obj.delete()
     flash(msg, cat)
 

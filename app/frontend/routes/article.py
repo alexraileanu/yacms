@@ -5,7 +5,7 @@ from app.backend.models.article import Article
 from app.frontend.forms.comment import CommentForm
 
 
-@frontend.route('/article/<slug>')
+@frontend.route('/article/<path:slug>')
 def article_view(slug):
     obj = Article.get('slug', slug)
     comment_form = CommentForm(article_id=obj.id)
