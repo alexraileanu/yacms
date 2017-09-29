@@ -1,8 +1,9 @@
 <div id='sidebar' class='tm-sidebar-left uk-background-default'>
     <ul class='uk-nav uk-nav-default'>
         <li class='uk-nav-header'>Articles</li>
-        <li>
-            <a href='{{ url_for('backend.article') }}'>Create</a></li>
+        <li><a href='{{ url_for('backend.article') }}'>Create</a></li>
         <li><a href='{{ url_for('backend.article_list') }}'>List</a></li>
+        <li class='uk-nav-header'>YaCMS</li>
+        <li><a href='{{ url_for('backend.settings') }}'>Settings</a></li>
     </ul>
 </div>

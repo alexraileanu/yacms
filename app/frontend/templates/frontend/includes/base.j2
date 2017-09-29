@@ -2,7 +2,7 @@
 <html lang='en'>
 <head>
     <meta charset='UTF-8'>
-    <title>{% block title %}YaCMS{% endblock %}</title>
+    <title>{% block title %}{{ site_title }}{% endblock %}</title>
 
     <link rel='stylesheet' href='//cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-beta.30/css/uikit.min.css'/>
     <link href='https://fonts.googleapis.com/css?family=Montserrat:300,400' rel='stylesheet'>
@@ -29,7 +29,7 @@
                 <nav uk-navbar>
                     <div class='uk-navbar-left'>
                         <a href='{{ url_for('frontend.index') }}' class='uk-navbar-item uk-logo'>
-                            YaCMS
+                            {{ site_title }}
                         </a>
                     </div>
                     <div class='uk-navbar-right'>

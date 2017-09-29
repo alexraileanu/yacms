@@ -27,7 +27,7 @@ class Article(BaseMixin, db.Model):
         ymd = datetime.date.fromtimestamp(time.time()).strftime('%Y/%m/%d')
         slug = '{}/{}'.format(ymd, slugify.slugify(self.title))
 
-        article_exists = self.exists(slug)
+        article_exists = self.exists('slug', self.slug)
 
         if article_exists:
             print(slug)
@@ -48,6 +48,9 @@ class Article(BaseMixin, db.Model):
 
         return cls.query.all()
 
+    """
+        checks if an object with filter_column = filter_value exists in the db
+    """
     @classmethod
-    def exists(cls, slug):
-        return db.session.query(exists().where(cls.slug == slug)).scalar()
+    def exists(cls, filter_column=None, filter_value=None):
+        return db.session.query(exists().where(getattr(cls, filter_column) == filter_value)).scalar()
