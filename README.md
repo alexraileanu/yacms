@@ -26,7 +26,7 @@ to the files, feel free to not use the -v flag for that). I also put the mariadb
 pretty straight forward.
 
 ```bash
-    $ docker run --name mariadb -e MYSQL_ROOT_PASSWORD=root -v /path/to/mysql:/var/lib/mysql -d -p 3307:3306 --net n mariadb:10.3.0
+    $ docker run --name mariadb -e MYSQL_ROOT_PASSWORD=root -v /path/to/mysql:/var/lib/mysql -d -p 3307:3306 mariadb:10.3.0
     $ docker run -p 6379:6379 --name redis -d redis
 ```
 
