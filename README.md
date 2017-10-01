@@ -57,7 +57,7 @@ container.
 - After that's done (it'll take a little bit of time), run the container with:
 
 ```bash
-    $ docker run -p5000:5000 --name yacms -v .:/var/www/yacms -d yacms
+    $ docker run -p5000:5000 --name yacms -v $(pwd):/var/www/yacms -d yacms
 ```
 
 - It will likely fail because the database won't have the correct tables, you can create the initial tables with the 
