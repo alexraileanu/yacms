@@ -27,7 +27,7 @@ class Article(BaseMixin, db.Model):
         ymd = datetime.date.fromtimestamp(time.time()).strftime('%Y/%m/%d')
         slug = '{}/{}'.format(ymd, slugify.slugify(self.title))
 
-        article_exists = self.exists('slug', self.slug)
+        article_exists = self.exists('slug', slug)
 
         if article_exists:
             print(slug)

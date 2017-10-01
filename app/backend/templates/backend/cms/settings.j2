@@ -1,5 +1,5 @@
 {% extends 'backend/includes/base.j2' %}
-{% from 'backend/includes/macros.j2' import render_field, render_submit_field %}
+{% from 'backend/includes/macros.j2' import render_field, render_submit_field, render_flashes %}
 
 {% block menu %}
     {% include 'backend/includes/adminMenu.j2' %}
@@ -14,12 +14,21 @@
         <div class='uk-section-small uk-section-default header'>
             <div class='uk-container uk-container-large'>
                 <h3>Site settings</h3>
+
+                <div style='width: 50%'>
+                    {{ render_flashes() }}
+                </div>
+
                 <form method='POST' role='form' class='form' style='width: 50%;'> {# TODO: fix this #}
 
                     {{ form.csrf_token() }}
                     <fieldset class='uk-fieldset'>
                         <div class='uk-margin'>
                             {{ render_field(form.site_title, tabindex=110, placeholder='title', class='uk-input', autocomplete='off') }}
+                        </div>
+
+                        <div class='uk-margin'>
+                            {{ render_field(form.site_timezone, tabindex=120, class='uk-select') }}
                         </div>
 
                         <div class='uk-margin'>

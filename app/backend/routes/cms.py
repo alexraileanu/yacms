@@ -1,6 +1,6 @@
 from app.backend import backend
 from app.backend.forms.cms import SettingsForm
-from flask_user import login_required, current_user
+from flask_user import login_required
 from flask import request, redirect, url_for, render_template, flash
 from app.backend.models.cms import CMS
 
@@ -10,7 +10,8 @@ from app.backend.models.cms import CMS
 def settings():
     obj = CMS()
     form = SettingsForm(
-        site_title=CMS.get('site_title')
+        site_title=CMS.get('site_title'),
+        site_timezone=CMS.get('site_timezone'),
     )
 
     if request.method == 'POST' and form.validate():

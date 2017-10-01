@@ -16,9 +16,12 @@ class CMS(object):
 
     @classmethod
     def set(cls, field, value):
-        print(field, value)
         return redis_instance.hset(cls.hash_key, field, value)
 
+    """
+        when creating a CMS object, I populate it with a form's fields (and values). to actually save those values in
+        the redis instance, I iterate over all the attributes of this object and save each attribute in redis. 
+    """
     def save(self):
         try:
             for set_attr in self.__dict__:
