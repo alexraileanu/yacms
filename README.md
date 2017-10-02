@@ -1,4 +1,4 @@
-## yacms
+## YaCMS
 
 YaCMS (yet another content management system) is a small CMS I'm writing python using flask (and many other packages. 
 refer to the requirements.txt for the full list). I'm writing it for fun and to learn some more python. Code is far, 
@@ -11,9 +11,9 @@ I chose to have the extension for the templates as .j2 because if I had .html, P
 
 The admin layout was borrowed from [here](https://github.com/ConsoleTVs/UIAdmin) go check it out.
 
-### installation
+### Installation
 
-#### requirements
+#### Requirements
 
 I assume you already have a mysql (or mariadb) running and also a redis instance somewhere. I prefer to have them on
 different docker containers (you can have that or on your own machine, whichever) and link them to the container
@@ -72,6 +72,6 @@ to the redis instance.
 
 - In theory that should be everyhing and you should be able to navigate to `http://localhost:5000`.
 
-#### license
+#### License
 
 [MIT](LICENSE.md), of course.
