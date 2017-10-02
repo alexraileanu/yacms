@@ -15,7 +15,7 @@
                     <h1 class='uk-article-title'>{{ article.title }}</h1>
                     <p class='uk-article-meta'>Added by <a href='#'
                                                              class='uk-link-muted'>{{ article.aauthor.username }}</a>
-                        on {{ article.created_at|date('Do of MMMM, YYYY') }}.</p>
+                        on {{ article.created_at|format_date }}.</p>
                     <p>{{ article.content }}</p>
                 </article>
 

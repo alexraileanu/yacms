@@ -19,16 +19,31 @@
                     {{ render_flashes() }}
                 </div>
 
-                <form method='POST' role='form' class='form' style='width: 50%;'> {# TODO: fix this #}
+                <form method='POST' role='form' class='form uk-form-horizontal' style='width: 50%;'> {# TODO: fix this #}
 
                     {{ form.csrf_token() }}
                     <fieldset class='uk-fieldset'>
                         <div class='uk-margin'>
-                            {{ render_field(form.site_title, tabindex=110, placeholder='title', class='uk-input', autocomplete='off') }}
+                            <label class="uk-form-label" for="siteTitle">Site title</label>
+                            <div class="uk-form-controls">
+                                {{ render_field(form.site_title, tabindex=110, placeholder='title', class='uk-input', autocomplete='off', id='siteTitle') }}
+                            </div>
                         </div>
 
                         <div class='uk-margin'>
-                            {{ render_field(form.site_timezone, tabindex=120, class='uk-select') }}
+                            <label class="uk-form-label" for="timezone">Timezone</label>
+                            <div class="uk-form-controls">
+                                {{ render_field(form.site_timezone, tabindex=120, class='uk-select', id='timezone') }}
+                            </div>
+                        </div>
+
+                        <div class='uk-margin'>
+                            <label class="uk-form-label">Date format</label>
+                            <div class="uk-form-controls">
+                                {% for radio in form.site_date_format %}
+                                    {{ radio(class='uk-radio') }}{{ radio.label }}<br />
+                                {% endfor %}
+                            </div>
                         </div>
 
                         <div class='uk-margin'>

@@ -12,7 +12,7 @@ redis_instance = FlaskRedis(app)
 
 from app.backend import backend
 from app.frontend import frontend
-from app.backend.commands import seed
+from app.backend.commands import commands
 
 app.register_blueprint(frontend)
 app.register_blueprint(backend)

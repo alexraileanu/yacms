@@ -61,11 +61,13 @@ container.
 ```
 
 - It will likely fail because the database won't have the correct tables, you can create the initial tables with the 
-following command. I also recommend seeding the database with the default user.
+following command. I also recommend seeding the database with the default user and adding the default settings 
+to the redis instance.
 
 ```bash
     $ docker exec -it yacms flask db upgrade
     $ docker exec -it yacms flask seed
+    $ docker exec -it yacms flask redis_prepare
 ```
 
 - In theory that should be everyhing and you should be able to navigate to `http://localhost:5000`.

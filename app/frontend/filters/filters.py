@@ -3,9 +3,9 @@ from arrow import get
 from app.backend.models.cms import CMS
 
 
-@frontend.app_template_filter('date')
-def date(string, format):
-    return get(string).format(format)
+@frontend.app_template_filter('format_date')
+def format_date(string):
+    return get(string).format(CMS.get('site_date_format'))
 
 
 @frontend.app_template_filter('humanize')
