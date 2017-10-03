@@ -40,8 +40,17 @@
                         <div class='uk-margin'>
                             <label class="uk-form-label">Date format</label>
                             <div class="uk-form-controls">
-                                {% for radio in form.site_date_format %}
-                                    {{ radio(class='uk-radio') }}{{ radio.label }}<br />
+                                {% for date_radio in form.site_date_format %}
+                                    {{ date_radio(class='uk-radio') }} {{ date_radio.label }}<br />
+                                {% endfor %}
+                            </div>
+                        </div>
+
+                        <div class='uk-margin'>
+                            <label class="uk-form-label">Hour format</label>
+                            <div class="uk-form-controls">
+                                {% for hour_radio in form.site_time_format %}
+                                    {{ hour_radio(class='uk-radio') }} {{ hour_radio.label }}<br />
                                 {% endfor %}
                             </div>
                         </div>

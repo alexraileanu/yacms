@@ -12,7 +12,8 @@ def settings():
     form = SettingsForm(
         site_title=CMS.get('site_title'),
         site_timezone=CMS.get('site_timezone'),
-        site_date_format=CMS.get('site_date_format')
+        site_date_format=CMS.get('site_date_format'),
+        site_time_format=CMS.get('site_time_format')
     )
 
     if request.method == 'POST' and form.validate():

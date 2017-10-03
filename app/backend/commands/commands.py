@@ -30,6 +30,7 @@ def prepare_redis():
     cms.site_title = 'YaCMS'
     cms.site_timezone = 'Europe/Amsterdam'
     cms.site_date_format = 'Do of MMMM, YYYY'
+    cms.site_time_format = 'hh:mm A'
 
     try:
         cms.save()

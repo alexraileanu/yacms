@@ -10,9 +10,15 @@ DATE_FORMATS = [
     ('DD/MM/YYYY', '22/09/2017')
 ]
 
+TIME_FORMATS = [
+    ('hh:mm A', '01:33 PM'),
+    ('HH:mm', '13:33')
+]
+
 
 class SettingsForm(FlaskForm):
     site_title = StringField('Site title', [DataRequired()])
     site_timezone = SelectField('Timezone', choices=[(k, k) for k in common_timezones])
     site_date_format = RadioField('Date format', choices=DATE_FORMATS)
+    site_time_format = RadioField('Time format', choices=TIME_FORMATS)
     submit = SubmitField('Save')
