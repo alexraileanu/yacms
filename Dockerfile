@@ -18,5 +18,5 @@ RUN pip3 install flask_user
 RUN pip3 install -r requirements.txt
 COPY . .
 
-COPY ./config/config.docker.cfg ./config/config.cfg
+COPY ./config/config.example.cfg ./config/config.cfg
 CMD ["python3", "index.py"]
