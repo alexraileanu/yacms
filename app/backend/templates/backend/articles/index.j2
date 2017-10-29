@@ -13,45 +13,49 @@
     <div class="content-padder content-background">
         <div class="uk-section-small uk-section-default header">
             <div class="uk-container uk-container-large">
-                <h3>Articles list</h3>
-                <div>
-                    {{ render_flashes() }}
-                </div>
-                <table class="uk-table uk-table-divider uk-table-small uk-table-hover">
-                    <thead>
-                        <tr>
-                            <th>Title</th>
-                            <th>Author</th>
-                            <th>Comment count</th>
-                            <th>Actions</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {% for article in articles %}
+                {% if not articles %}
+                    <h3>There's no articles available right now. <a href='{{ url_for('backend.article') }}'>Go add one!</a></h3>
+                {% else %}
+                    <h3>Articles list</h3>
+                    <div>
+                        {{ render_flashes() }}
+                    </div>
+                    <table class="uk-table uk-table-divider uk-table-small uk-table-hover">
+                        <thead>
                             <tr>
-                                <td>{{ article.title }}</td>
-                                <td>{{ article.aauthor.username }}</td>
-                                <td>{{ article.comments.count() }}</td>
-                                <td>
-                                    <a class="uk-button uk-button-text" type="button">Actions</a>
-                                    <div uk-dropdown="mode: click">
-                                        <ul class="uk-nav uk-dropdown-nav">
-                                            <li>
-                                                <a href="{{ url_for('frontend.article_view', slug=article.slug) }}">View</a>
-                                            </li>
-                                            <li>
-                                                <a href="{{ url_for('backend.article', slug=article.slug) }}">Edit</a>
-                                            </li>
-                                            <li>
-                                                <a href="{{ url_for('backend.article_delete', slug=article.slug) }}">Delete</a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </td>
+                                <th>Title</th>
+                                <th>Author</th>
+                                <th>Comment count</th>
+                                <th>Actions</th>
                             </tr>
-                        {% endfor %}
-                    </tbody>
-                </table>
+                        </thead>
+                        <tbody>
+                            {% for article in articles %}
+                                <tr>
+                                    <td>{{ article.title }}</td>
+                                    <td>{{ article.aauthor.username }}</td>
+                                    <td>{{ article.comments.count() }}</td>
+                                    <td>
+                                        <a class="uk-button uk-button-text" type="button">Actions</a>
+                                        <div uk-dropdown="mode: click">
+                                            <ul class="uk-nav uk-dropdown-nav">
+                                                <li>
+                                                    <a href="{{ url_for('frontend.article_view', slug=article.slug) }}">View</a>
+                                                </li>
+                                                <li>
+                                                    <a href="{{ url_for('backend.article', slug=article.slug) }}">Edit</a>
+                                                </li>
+                                                <li>
+                                                    <a href="{{ url_for('backend.article_delete', slug=article.slug) }}">Delete</a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </td>
+                                </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                {% endif %}
             </div>
         </div>
     </div>
