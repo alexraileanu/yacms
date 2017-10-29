@@ -1,6 +1,5 @@
 from app import db
 from app.backend.models.mixins import BaseMixin
-from sqlalchemy.sql import exists
 import datetime
 import slugify
 import time
@@ -34,23 +33,3 @@ class Article(BaseMixin, db.Model):
             # todo change slug and check until a free one is open. too lazy to do rn
         else:
             self.slug = slug
-
-    """
-        get an object from the database based on a filter column (if set).
-        
-        defaults to getting all the objects
-    """
-
-    @classmethod
-    def get(cls, filter_column=None, filter_value=None):
-        if filter_column:
-            return cls.query.filter(getattr(cls, filter_column) == filter_value).first_or_404()
-
-        return cls.query.all()
-
-    """
-        checks if an object with filter_column = filter_value exists in the db
-    """
-    @classmethod
-    def exists(cls, filter_column=None, filter_value=None):
-        return db.session.query(exists().where(getattr(cls, filter_column) == filter_value)).scalar()

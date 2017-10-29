@@ -23,6 +23,25 @@
                 {% if user_manager.enable_change_password %}
                     <p><a href='{{ url_for('user.change_password') }}'>Change password</a></p>
                 {% endif %}
+
+                {% if current_user.image %}
+                    <h3>Current avatar: </h3>
+                    <img class='avatar' src='{{ url_for('backend.media_file', filename=current_user.image.first().thumbnail_name) }}' alt=''>
+                {% endif %}
+
+                <form action='{{ url_for('backend.image_add') }}' style='width: 75%;' enctype='multipart/form-data'>
+                    {{ image_form.hidden_tag() }}
+                    <div class='imageUpload uk-placeholder uk-text-center'>
+                        <span uk-icon='icon: cloud-upload'></span>
+                        <span class='uk-text-middle'>Upload an image by dropping it here or</span>
+                        <div uk-form-custom>
+                            {{ image_form.file }}
+                            <span class='uk-link'>selecting one</span>
+                        </div>
+                    </div>
+
+                    <progress id='progressbar' class='uk-progress' value='0' max='100' hidden></progress>
+                </form>
             </div>
         </div>
     </div>

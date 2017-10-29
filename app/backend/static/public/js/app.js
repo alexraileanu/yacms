@@ -39,4 +39,81 @@ $(() => {
         quickInsertTags: [],
         charCounterCount: false
     });
+
+    let bar = $('#progressbar')[0];
+
+    // UIkit.upload('.imageUpload', {
+    //
+    //     url: '/admin/image/add',
+    //     multiple: true,
+    //     type: 'POST',
+    //     mime: 'image/*',
+    //     name: 'file',
+    //
+    //     loadStart: (e) => {
+    //         bar.removeAttribute('hidden');
+    //         bar.max =  e.total;
+    //         bar.value =  e.loaded;
+    //     },
+    //
+    //     progress: (e) => {
+    //         bar.max =  e.total;
+    //         bar.value =  e.loaded;
+    //
+    //     },
+    //
+    //     loadEnd: (e) => {
+    //         bar.max =  e.total;
+    //         bar.value =  e.loaded;
+    //     },
+    //
+    //     completeAll: () => {
+    //
+    //     }
+    // });
+
+    UIkit.upload('.imageUpload', {
+
+        url: '/admin/image/add',
+        multiple: true,
+        type: 'POST',
+        mime: 'image/*',
+        name: 'file',
+
+        loadStart: (e) => {
+            bar.removeAttribute('hidden');
+            bar.max =  e.total;
+            bar.value =  e.loaded;
+        },
+
+        progress: (e) => {
+            bar.max =  e.total;
+            bar.value =  e.loaded;
+
+        },
+
+        loadEnd: (e) => {
+            bar.max =  e.total;
+            bar.value =  e.loaded;
+        },
+
+        completeAll: (arguments) => {
+            let responseType = arguments.responseJSON.cat,
+                responseMessage = arguments.responseJSON.msg;
+
+            if(responseType === 'success'){
+                    UIkit.notification('<span uk-icon="icon: check"></span> ' + responseMessage, {
+                        status: 'primary'
+                    });
+            } else {
+                UIkit.notification('<span uk-icon="icon: close"></span> ' + responseMessage, {
+                    status: 'danger',
+                });
+            }
+
+            setTimeout(() => {
+                bar.setAttribute('hidden', 'hidden');
+            }, 1000);
+        }
+    });
 });

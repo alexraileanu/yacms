@@ -1,5 +1,7 @@
 {% extends 'backend/includes/base.j2' %}
 
+{% from 'backend/includes/macros.j2' import render_flashes %}
+
 {% block menu %}
     {% include 'backend/includes/adminMenu.j2' %}
 {% endblock %}
@@ -12,6 +14,7 @@
     <div class='content-padder content-background'>
         <div class='uk-section-small uk-section-default header'>
             <div class='uk-container uk-container-large'>
+                {{ render_flashes() }}
                 <h3>
                     Hello and welcome to the mental health hotline
                 </h3>

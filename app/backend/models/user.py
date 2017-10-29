@@ -3,7 +3,7 @@ from flask_user import UserMixin
 
 
 class User(db.Model, UserMixin):
-    id = db.Column(db.Integer, primary_key=True)
+    id = db.Column(db.Integer, primary_key=True, autoincrement=True)
     username = db.Column(db.String(128))
     password = db.Column(db.String(128))
     is_enabled = db.Column(db.Boolean())
@@ -11,6 +11,7 @@ class User(db.Model, UserMixin):
 
     articles = db.relationship('Article', backref='aauthor', lazy='dynamic')
     comments = db.relationship('Comment', backref='cauthor', lazy='dynamic')
+    image = db.relationship('Image', backref='user', lazy='dynamic')
 
     def __init__(self, username=None, password=None, is_enabled=True, confirmed_at=None):
         self.username = username

@@ -2,6 +2,8 @@
 /config/*
 !/config/.gitkeep
 !/config/config.example.cfg
+/app/media/*
+!/app/media/.gitkeep
 .idea
 .DS_Store
 __pycache__
