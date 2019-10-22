@@ -42,5 +42,5 @@ six==1.10.0
 SQLAlchemy==1.1.14
 Unidecode==0.4.21
 urllib3==1.22
-Werkzeug==0.12.2
+Werkzeug==0.15.3
 WTForms==2.1
